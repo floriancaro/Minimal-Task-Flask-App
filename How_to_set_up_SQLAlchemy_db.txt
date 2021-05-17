@@ -1,0 +1,11 @@
+### Initialize the SQLAlchemy db
+
+from models import db
+db.create_all()
+from models import Task
+from datetime import datetime
+t = Task(title="abc", date=datetime.utcnow())
+t
+db.session.add(t)
+db.session.commit()
+Task.query.all()
